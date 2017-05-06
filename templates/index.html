@@ -2,11 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"-->
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
     <title>CubCut - Panel 1.0.0</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="{{ url_for('static', filename='command.js') }}"></script>
+    <script>
+		var config = {};
+		config.port = "{{config.WebPort}}";
+		config.ip = "{{config.IP}}";
+        config.app = "{{config.app}}";
+		setRestApi(config.ip, config.port, config.app);
+	</script>
 </head>
 <body>
 

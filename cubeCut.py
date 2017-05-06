@@ -12,12 +12,13 @@ import socket
 
 
 def getLocalIp():
-    returnsocket.gethostbyname(socket.gethostname())
+    return socket.gethostbyname(socket.gethostname())
 
 # Thats all to configure for the app
 AppName = "cubase"
+WebPort = 5555
 app = Flask(__name__)
-app.config['WebPort'] = 55555
+app.config['WebPort'] = WebPort
 app.config['IP'] = getLocalIp()
 app.config['app'] = AppName
 
@@ -25,8 +26,7 @@ app.config['app'] = AppName
 # TODO limit your whitelist
 WhiteList = "0.0.0.0"
 
-
-def sendCommand(self, command):
+async def sendCommand(command):
     '''Parse the command string and construct the shortcut'''
     keys = []
     special = []
@@ -44,10 +44,10 @@ def sendCommand(self, command):
     keyStrings = command.split('+')
 
     if 'plus' in keyStrings:
-        keyString.append('+')
-        keyString.remove('plus')
+        keyStrings.append('+')
+        keyStrings.remove('plus')
 
-    for key in KeyStrings:
+    for key in keyStrings:
         if key in specialKeys:
             special.append(key)
         else:
@@ -67,6 +67,8 @@ def sendCommand(self, command):
         for spec in special:
             pyautogui.keyUp(spec)
 
+    await print("sent")
+
 #/sendCommand
 
 
@@ -82,7 +84,7 @@ def index():
 def triggerCommands(command):
     print("incoming command: {0}".format(command))
     sendCommand(command)
-    return "sent"
+    return "200"
 
 
 @app.route('/{0}/external/<command>'.format(AppName))
@@ -92,4 +94,4 @@ def triggerAppCommands(command):
     return "sent"
 
 if __name__ == '__main__':
-    app.run(debug=False, use_reloader=True, host=WhiteList)
+    app.run(debug=False, use_reloader=True, host=WhiteList, port=WebPort)

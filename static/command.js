@@ -19,6 +19,7 @@ function init() {
             if(m.css("visibility") == 'visible')
             {
                 m.css("visibility", 'collapse')
+                m.css("display", 'none')
                 openMenu = null;
             }
             else                
@@ -26,9 +27,11 @@ function init() {
                 console.log("vis")
                 if (openMenu != null) {
                     openMenu.css("visibility", 'collapse')
+                    openMenu.css("display", 'none')
                 }
                 openMenu = m;
                 openMenu.css("visibility", 'visible')
+                m.css("display", 'flex')
             }            
         }
     );
