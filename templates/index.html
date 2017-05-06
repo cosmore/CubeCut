@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>CubCut - Panel 1.0.0</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="{{ url_for('static', filename='command.js') }}"></script>
+</head>
+<body>
+
+<div class="content" id="content">
+
+    <div class="button-row">
+    
+        <div class="button-column">
+            <h1>Project</h1>
+            <div class="button-area">
+                <h2>Content Filter</h2>
+                <button data-command="ctrl+shift+f1" class="orange">Everything</button>
+                <button data-command="ctrl+shift+8" class="green">Data</button>
+                <button data-command="ctrl+shift+9" class="green">Data Cursor</button>
+                <button data-command="ctrl+shift+a" class="green">Data Locator</button>
+                <button data-command="ctrl+shift+b" class="green">Data Automation</button>
+            </div>
+            <div class="button-area">
+                <h2>Instruments</h2>
+                <button data-command="ctrl+shift+f9" class="submenu red">VST</button>    
+                <button data-command="ctrl+shift+f2" class="submenu blue">Kontakt</button>
+                <button data-command="ctrl+shift+f3" class="submenu blue">Battery</button>
+                <button data-command="ctrl+shift+f4" class="submenu black">Kronos</button>
+                <button data-command="ctrl+shift+f5" class="submenu black">Integra7</button>
+                <button data-command="ctrl+shift+alt+f5" class="submenu  black">Fantom</button>
+                <button data-command="ctrl+shift+f8" class="submenu brown" >Virus/Waldorf</button>
+                <button data-menu="menuMixInstrumentsFilter" class="orange menu">Others...</button>
+                <button data-menu="menuNameInstrumentsFilter" class="orange menu">Names...</button>
+            </div>
+        </div>
+                
+        <div class="button-column collapse" id="menuMixInstrumentsFilter">
+            <h1>Instruments</h1>
+            <div class="button-area">                
+                <button data-command="ctrl+shift+f6" class="submenu grey">PA3x</button>
+                <button data-command="ctrl+shift+f6" class="submenu">Motif</button>
+                <button data-command="ctrl+shift+f7" class="submenu black">Forte</button>
+                <button data-command="ctrl+shift+f7" class="submenu red ">Electro</button>
+                <button data-command="ctrl+shift+f10" class="submenu blue">UHE</button>
+                <button data-command="ctrl+shift+f11" class="submenu blue">NI</button>                
+                <button data-command="ctrl+shift+f13" class="submenu blue">Omnisphere</button>
+                <button data-command="ctrl+shift+f15" class="submenu blue">Sylenth</button>
+                <button data-command="ctrl+shift+f12" class="submenu brown">Arturia</button>
+                <button data-command="ctrl+shift+f14" class="submenu red">Rack</button>
+                <button data-command="ctrl+shift+f15" class="submenu">JV-2080</button>
+                <button data-command="ctrl+shift+f15" class="submenu">XV-5050</button>                
+                <button data-command="ctrl+shift+f15" class="submenu">Triton</button>
+                <button data-command="ctrl+shift+f15" class="submenu">Trinity</button>
+                <button data-command="ctrl+shift+f15" class="submenu red ">Regal</button>
+            </div>
+        </div>
+        
+        <div class="button-column collapse" id="menuNameInstrumentsFilter">
+            <h1>Names</h1>
+            <div class="button-area"> 
+                <button data-command="ctrl+shift+f16" class="submenu blue">piano</button>
+                <button data-command="ctrl+shift+f16" class="submenu blue">epiano</button>
+                <button data-command="ctrl+shift+3" class="submenu blue">organ</button>
+                <button data-command="ctrl+shift+f17" class="submenu red">synth</button>
+                <button data-command="ctrl+shift+f17" class="submenu red">pad</button>
+                <button data-command="ctrl+shift+f17" class="submenu red">athmo</button>
+                <button data-command="ctrl+shift+f18" class="submenu green">drum</button>
+                <button data-command="ctrl+shift+1" class="submenu green">bass</button>
+                <button data-command="ctrl+shift+7" class="submenu green">git</button>                
+                <button data-command="ctrl+shift+f19" class="submenu orange">strings</button>
+                <button data-command="ctrl+shift+2" class="submenu orange">vox</button>
+                <button data-command="ctrl+shift+5" class="submenu orange">orch</button>
+                <button data-command="ctrl+shift+6" class="submenu orange">brass</button>
+                <button data-command="ctrl+shift+6" class="submenu orange">wood</button>
+                <button data-command="ctrl+shift+4" class="submenu blue">noise</button>
+            </div>
+        </div>
+
+        <div class="button-column">
+            <h1>Mixer</h1>
+            <div class="button-area">
+                <h2>Channel Filter</h2>
+                <button data-command="ctrl+alt+f1" class="orange">All</button>
+                <button data-command="ctrl+alt+9">VST</button>
+                <button data-command="ctrl+alt+9">Audio</button>
+                <button data-command="ctrl+alt+7">Audio/Groups/Fx</button>
+                <button data-command="ctrl+alt+8">Groups/Fx</button>
+                <button data-command="ctrl+alt+9">Fx</button>
+                <button data-command="ctrl+alt+a">Outputs</button>
+                <button data-command="ctrl+alt+a">Inputs</button>
+             </div>
+             <div class="button-area">
+                <h2>Output</h2>
+                <button class="blue" data-command="ctrl+1">Monitor1</button>
+                <button class="blue" data-command="ctrl+2">Monitor2</button>
+                <button class="blue" data-command="ctrl+3">Phones</button>
+                <button class="blue" data-command="ctrl+alt+a">Loop</button>
+                <button class="red" data-command="c">Click</button>                
+                <button class="orange" data-command="alt+j">Master Inserts</button>
+            </div>
+        </div>
+
+        <div class="button-column">
+            <h1>Workspace</h1>
+            <div class="button-area">
+                <h2 data-command="alt+shift+v">Workspaces</h2>
+                <button data-command="alt+num0" class="submenu blue">None</button>
+                <button data-command="alt+num1" class="submenu blue">Pure</button>
+                <button data-command="alt+num2" class="submenu blue">Compose</button>
+                <button data-command="alt+num3" class="submenu blue">Mixing</button>
+                <button data-command="alt+num4" class="submenu blue">Mixing2</button>
+                <button data-command="alt+num5" class="submenu blue">VST Inst</button>
+                <button data-command="alt+num6" class="submenu blue">Automation</button>
+                <button data-command="alt+num7" class="submenu blue">Kontakt</button>
+                <button data-command="alt+num8" class="submenu blue">Integra7</button>
+                <button data-command="alt+num9" class="submenu blue">Kronos</button>
+            </div>
+            <div class="button-area">
+                <h2>Misc</h2>
+                <button data-command="g" class="blue">Unmute All</button>
+                <button data-command="g" class="blue">Follow Cursor</button>
+                <button data-command="h" class="blue">Punch In</button>
+            </div>
+        </div>         
+        
+        <div class="button-column">
+            <h1>Windows</h1>
+            <div class="button-area">
+                <h2 data-command="alt+shift+v">Windows</h2>
+                <button data-command="alt+num0" class="submenu violet">Mixer</button>
+                <button data-command="alt+num1" class="submenu violet">Transport</button>
+                <button data-command="alt+num2" class="submenu violet">VST Instruments</button>
+                <button data-command="f11" class="submenu violet">VST Plugins</button>
+                <button data-command="f8" class="submenu violet">Midi Instruments</button>
+                <button data-command="f4" class="submenu violet">VST Connections</button>
+                <button data-command="f9" class="submenu violet">Studio</button>
+                <button data-command="alt+i" class="submenu violet">Inspector</button>
+                <button data-command="ctrl+p" class="submenu violet">Pool</button>                
+                <button data-command="ctrl+t" class="submenu red">Cleanup</button>
+            </div>            
+            <div class="button-area">
+                <h2>Extern</h2>
+                <button data-window="Firemix">Firemix</button>                
+                <button data-window="Midiquest">C4 Pro</button>
+                <button data-window="Midiquest">Midiquest</button>
+                <button data-window="notes" class="submenu">Notes</button>
+            </div>
+        </div> 
+        
+        <div class="button-column">
+            <h1>Channel</h1>
+            <div class="button-area">
+                <button data-command="alt+h" class="green blue higher">ChannelStrip</button>
+                <button data-command="alt+g" class="green red  higher">VST Instrument</button>
+            </div>    
+            <div class="button-area">
+                <h2>Fx</h2>
+                <button data-command="alt+y" class="orange">Bypass Inserts</button>
+                <button data-command="alt+g" class="orange">Bypass Sends</button>
+            </div>
+             <div class="button-area">
+                <h2>Mute</h2>
+                <button class="yellow" data-command="m" class="orange">mute</button>
+                <button class="red"    data-command="s">solo</button>
+                <button class="orange" data-command="ctrl+f13">solo defeat</button>
+            </div>
+             <div class="button-area">
+                <h2>Menues</h2>
+                <button data-menu="menuRender" class="blue">Render...</button>
+                <button data-menu="menuAudio" class="blue">Audio...</button>
+                <button data-menu="menuMidi" class="blue">Midi...</button>
+                <button data-menu="menuMaker" class="blue">Marker...</button>
+            </div>
+        </div>
+
+        <div class="button-menu" id="menuAudio">
+            <h1>Audio</h1>
+            <div class="button-area">               
+                <button data-command="alt+shift+1" class="orange">Normalize</button>
+                <button data-command="alt+shift+2" class="orange">Noise Gate</button>
+                <button data-command="alt+shift+3"> Fix DC Offset</button>
+                <button data-command="alt+shift+4">Gating</button>
+                <button data-command="alt+shift+4">hit points...</button>
+            </div>
+        </div>
+                
+        <div class="button-menu" id="menuMidi">
+            <h1>Midi</h1>
+            <div class="button-area">
+                <button data-command="q" class="orange">Quantize</button>
+                <button data-command="ctrl+shift+q">Undo Quantize</button>
+                <button data-command="alt+f6">Midi Parameter</button>
+                <button data-command="alt+f1">Thinout Controller</button>
+                <button data-command="alt+f2">Fix Velocity</button>
+                <button data-command="alt+f3">Fix Length</button>
+                <button data-command="alt+f5">Make subparts</button>
+                <button data-command="alt+f7">controller</button>
+                <button data-command="alt+f7">10</button>
+                <button data-command="alt+f7">20</button>
+                <button data-command="alt+f7">30</button>
+                <button data-command="alt+f7">40</button>
+                <button data-command="alt+f7">50</button>
+                <button data-command="alt+f7">60</button>
+                <button data-command="alt+f7">70</button>
+                <button data-command="alt+f7">80</button>
+                <button data-command="alt+f7">90</button>
+                <button data-command="alt+f7">100</button>
+                <button data-command="alt+f7">110</button>
+                <button data-command="alt+f7">120</button>
+                <button data-command="alt+f7">127</button>
+            </div>
+        </div>
+        
+        <div class="button-menu" id="menuRender">
+            <h1>Render</h1>
+            <div class="button-area">
+                <h2>Stems</h2>
+                <button data-command="ctrl+f5">Create From Start</button>
+                <button data-command="ctrl+f4">Create In Locator</button>
+                <button data-command="ctrl+f1">Render current</button>
+                <button data-command="ctrl+f2">Render locator</button>
+                <button data-command="ctrl+f3">Export Project</button>
+            </div>
+        </div>  
+        
+        <div class="button-menu" id="menuRender">
+            <h1>Render</h1>
+            <div class="button-area">
+                <h2>Stems</h2>
+                <button data-command="ctrl+f5">Create From Start</button>
+                <button data-command="ctrl+f4">Create In Locator</button>
+                <button data-command="ctrl+f1">Render current</button>
+                <button data-command="ctrl+f2">Render locator</button>
+                <button data-command="ctrl+f3">Export Project</button>
+            </div>
+        </div>
+        
+    </div>
+</div>
+</body>
+</html>
